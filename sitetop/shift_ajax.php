@@ -77,12 +77,13 @@
 		$year_month='';//対象年月
 		$kid_sn=0;//園児sn
 
+		$ary_row=explode("\n",$tta_PasteToenYotei);//行分割
+
 		///対象年月 記載行
 		$ary_col=explode("\t",$ary_row[$cell_y_year_month]);
 		$year_month=$ary_col[$cell_x_year_month];//対象年月
 		//セルデータ生成
 		$y=0;//行カウンタ
-		$ary_row=explode("\n",$tta_PasteToenYotei);//行分割
 		foreach($ary_row as $row){
 			$x=0;//列カウンタ
 			$ary_col=explode("\t",$row);
