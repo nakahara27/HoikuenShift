@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<title>保育園シフト</title>
+	<link rel='stylesheet' type='text/css' href='css/reset.css' />
+	<link rel='stylesheet' type='text/css' href='css/sanitize.css' />
+	<link rel='stylesheet' type='text/css' href='css/style.css' />
+</head>
+<body>
+	<div></div>
+	<div>
+		<span>園児登園予定表Excelを全選択→コピー→以下の枠に貼り付け→</span>
+		<button type='button' id='btn_total_excel'>集計</button>
+	</div>
+	<div><textarea style='width:20em;height:20em;' id='txa_paste_excel'></textarea></div>
+	<div id='div_total_ToenYotei'></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$('#btn_total_excel').on('click',function(){
+				fn_clickBtnTotalExcel();
+			});//#btn_total_excel.click
+			
+			
+			function fn_clickBtnTotalExcel(){//「集計」ボタン クリック---------------------------------------
+				var asc_post={};
+				asc_post['act']='clickBtnTotalExcel';
+				asc_post['txa_paste_excel']=$('#txa_paste_excel').val();
+				$.ajax({
+					url:'shift_ajax.php',
+					type:'post',
+					dataType:'json',
+					data:asc_post,
+					timeout:60000,
+					cache:false,
+					success:function(json_data){
+						if(json_data['debug']!='')alert(json_data['debug']);
+						if(json_data['result']=='OK'){
+							$('#div_total_ToenYotei').html(json_data['div_total_ToenYotei']);//集計結果表示エリア（この中に1日から末日までのdivが作成される）
+						}
+			
+					},complete:function(){
+						$('#txa_paste_excel').css('display','none');
+					},error:function(){
+						alert('エラー：ajax呼び出し');
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>

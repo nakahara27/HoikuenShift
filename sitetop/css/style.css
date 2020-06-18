@@ -1,0 +1,47 @@
+body{
+	font-family: Roboto, "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+	line-height: 1.75;
+	font-size: 16px;
+}
+
+/*パディングをサイズ内側にする処理*/
+* {
+	padding:0;
+	margin:0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#txa_paste_excel{
+	border:1px silver solid;
+}
+
+button{/*ボタン*/
+	margin:3px;
+	padding:0 3px;
+	height:1.4em;
+	border:1px silver solid;
+	background: linear-gradient(#eeeeee 0%, #bbbbbb 100%);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.th_col{
+	padding:0 5px;
+	border:1px solid silver;
+	text-align:center;
+}
+
+.th_row{
+	padding:0 5px;
+	border:1px solid silver;
+	text-align:center;
+}
+
+td{
+	padding:0 5px;
+	border:1px solid silver;
+	text-align:right;
+}
