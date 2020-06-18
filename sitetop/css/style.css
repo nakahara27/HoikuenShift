@@ -15,7 +15,8 @@ body{
 	box-sizing: border-box;
 }
 #txa_paste_excel{
-	border:1px silver solid;
+	height:10px;
+	width:10px;
 }
 
 button{/*ボタン*/

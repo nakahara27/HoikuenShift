@@ -23,8 +23,21 @@
 				fn_clickBtnTotalExcel();
 			});//#btn_total_excel.click
 			
-			
-			function fn_clickBtnTotalExcel(){//「集計」ボタン クリック---------------------------------------
+			async function fn_clickBtnTotalExcel(){//「集計」ボタン クリック（非同期（async）指定）----------------
+				if(navigator.clipboard){
+					const s_clipText=await navigator.clipboard.readText();//クリップボードからテキストを取得（awaitより同期化）
+					if(s_clipText){//クリップボード テキストを取得できた時
+						$('#txa_paste_excel').val(s_clipText);
+						fn_totalExcel();//集計処理
+					}else{//クリップボード テキストを取得できない時
+						//NOP:何もしない
+					}
+				}else{
+					alert('クリップボード 機能が利用できない環境です');
+				}
+			}
+
+			function fn_totalExcel(){//集計処理--------------------------------------------------------------------
 				var asc_post={};
 				asc_post['act']='clickBtnTotalExcel';
 				asc_post['txa_paste_excel']=$('#txa_paste_excel').val();
