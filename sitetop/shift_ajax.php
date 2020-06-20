@@ -105,7 +105,7 @@
 				$asc_total_kids[$age]++;//園児数カウントアップ
 				//日数ループzzz
 				for($day=1;$day<=31;$day++){//1日～31日ループ
-					$date=$asc_cell[$cell_x_year_month][$cell_y_time_from+$day-1];//日にちセル
+					isset($asc_cell[$cell_x_year_month][$cell_y_time_from+$day-1])?$date=$asc_cell[$cell_x_year_month][$cell_y_time_from+$day-1]:$date='';//日にちセル
 					if($date!=''){//日付が空欄で無い
 						if(isset($asc_day[$day])==false)$asc_day[$day]=$date;
 						$time_from=$asc_cell[$cur_x_kid_name][$cell_y_time_from+$day-1];//登園時刻(+2は「1日」位置を指す)

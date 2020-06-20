@@ -11,7 +11,7 @@
 <body>
 	<div></div>
 	<div>
-		<span>園児登園予定表Excelを全選択→コピー→以下の枠に貼り付け→</span>
+		<span>園児登園予定表Excelを全選択 → コピー →</span>
 		<button type='button' id='btn_total_excel'>集計</button>
 	</div>
 	<div><textarea style='width:20em;height:20em;' id='txa_paste_excel'></textarea></div>
@@ -53,7 +53,6 @@
 						if(json_data['result']=='OK'){
 							$('#div_total_ToenYotei').html(json_data['div_total_ToenYotei']);//集計結果表示エリア（この中に1日から末日までのdivが作成される）
 						}
-			
 					},complete:function(){
 						$('#txa_paste_excel').css('display','none');
 					},error:function(){
